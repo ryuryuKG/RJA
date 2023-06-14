@@ -1,6 +1,6 @@
 import glob
-sum=0
+l=[]
 for txt in glob.glob('sample/kitamura_****[1,3,5,7,9]_kgu.txt'):
     with open(txt) as f:
-        sum=sum+int(f.read())
-print(sum)
+        l.append(int(f.read()))
+print(sum(l))
