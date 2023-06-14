@@ -6,4 +6,3 @@ with open('data.txt') as f:
 #             sum=sum+int(l)
 #print(sum)
     print(sum([int(l) for l in f.read().split("\n") if re.fullmatch(r"-?\d+",l)]))
-
