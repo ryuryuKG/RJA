@@ -1,11 +1,6 @@
 import re
 import json
-import sys
-
-json_open = open('catalog.json', 'r')
-json_load = json.load(json_open)
-
-l=[ v['price'] for v in json_load if re.match("jacket",v['name'])]
+l=[ v['price'] for v in json.load(open('catalog.json', 'r')) if re.match("jacket",v['name'])]
 
 print(max(l))
 print(min(l))
