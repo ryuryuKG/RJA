@@ -11,12 +11,11 @@ canvas.pack()
 X=200
 Y=150
 R=60
-create_bone(X,Y,R,0)
-create_bone(X,Y,R,180)
-create_bone(X,Y,R,120)
-create_bone(X,Y,R,240)
-create_bone(X,Y+R,R,60)
-create_bone(X,Y+R,R,300)
+create_bone(X,Y-R,2*R,0)
+create_bone(X,Y,R+40,120)
+create_bone(X,Y,R+40,240)
+create_bone(X,Y+R,R+40,30)
+create_bone(X,Y+R,R+40,330)
 canvas.create_oval(X-25,Y-(50+R),X+25,Y-R, width=1)
 # canvas.create_line(X, Y, X, Y+L, fill = "Black", width = 3)
 root.mainloop()
