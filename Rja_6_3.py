@@ -3,7 +3,6 @@ import json
 import tkinter as tk
 import time
 
-data = [0, 1, 2]
 keypointinf = lambda pnum, json, kpn, data: json["people"][pnum]["pose_keypoints_2d"][kpn * 3 + data]
 
 root = tk.Tk()
