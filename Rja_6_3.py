@@ -13,7 +13,7 @@ canvas.pack()
 p1l=[]
 p2l=[]
 
-bodydict = {0:1,1:2,2:3,3:4,4:4,5:1,6:5,7:6,8:1,9:8,10:9,
+bodydict = {1:0,2:1,3:2,4:3,5:1,6:5,7:6,8:1,9:8,10:9,
             11:10,12:8,13:12,14:13,15:0,16:0,17:15,18:16,
             19:14,20:19,21:14,22:11,23:22,24:11,}
 for txt in glob.glob('kabeposter/kabeposter_*_keypoints.json'):
@@ -22,12 +22,12 @@ for txt in glob.glob('kabeposter/kabeposter_*_keypoints.json'):
         for j in range(25):
             p1l.append([keypointinf(0, l, j, i) for i in range(3)])
             p2l.append([keypointinf(1, l, j, i) for i in range(3)])
-        for num in range(25):
-            pair = int(bodydict[num])
-            if p1l[num][2] != 0 and p1l[pair][2] != 0:
-                canvas.create_line(p1l[num][0], p1l[num][1], p1l[pair][0], p1l[pair][1], width=1,tags="line")
-            if p2l[num][2] != 0 and p2l[pair][2] != 0:
-                canvas.create_line(p2l[num][0], p2l[num][1], p2l[pair][0], p2l[pair][1], width=1,tags="line")
+            if j >0:
+                pair = int(bodydict[j])
+                if p1l[j][2] != 0 and p1l[pair][2] != 0:
+                    canvas.create_line(p1l[j][0], p1l[j][1], p1l[pair][0], p1l[pair][1], width=1, tags="line")
+                if p2l[j][2] != 0 and p2l[pair][2] != 0:
+                    canvas.create_line(p2l[j][0], p2l[j][1], p2l[pair][0], p2l[pair][1], width=1, tags="line")
     time.sleep(0.02)
     root.update()
     p1l.clear()
