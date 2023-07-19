@@ -10,12 +10,12 @@ root.geometry("1920x1080")
 canvas = tk.Canvas(root, background="#fff", width=1920, height=1080)
 canvas.pack()
 
-p1l=[]
-p2l=[]
+p1l = []
+p2l = []
 
-bodydict = {1:0,2:1,3:2,4:3,5:1,6:5,7:6,8:1,9:8,10:9,
-             11:10,12:8,13:12,14:13,15:0,16:0,17:15,18:16,
-             19:14,20:19,21:14,22:11,23:22,24:11,}
+bodydict = {1: 0, 2: 1, 3: 2, 4: 3, 5: 1, 6: 5, 7: 6, 8: 1, 9: 8, 10: 9,
+            11: 10, 12: 8, 13: 12, 14: 13, 15: 0, 16: 0, 17: 15, 18: 16,
+            19: 14, 20: 19, 21: 14, 22: 11, 23: 22, 24: 11, }
 for txt in glob.glob('kabeposter/kabeposter_*_keypoints.json'):
     with open(txt, 'r') as f:
         l = json.loads(f.read())
@@ -25,9 +25,9 @@ for txt in glob.glob('kabeposter/kabeposter_*_keypoints.json'):
         for num in bodydict:
             pair = int(bodydict[num])
             if p1l[num][2] != 0 and p1l[pair][2] != 0:
-                canvas.create_line(p1l[num][0], p1l[num][1], p1l[pair][0], p1l[pair][1], width=1,tags="line")
+                canvas.create_line(p1l[num][0], p1l[num][1], p1l[pair][0], p1l[pair][1], width=1, tags="line")
             if p2l[num][2] != 0 and p2l[pair][2] != 0:
-                canvas.create_line(p2l[num][0], p2l[num][1], p2l[pair][0], p2l[pair][1], width=1,tags="line")
+                canvas.create_line(p2l[num][0], p2l[num][1], p2l[pair][0], p2l[pair][1], width=1, tags="line")
     time.sleep(0.02)
     root.update()
     p1l.clear()
